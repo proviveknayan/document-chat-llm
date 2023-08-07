@@ -1,6 +1,6 @@
 # Large Language Model Based Document Chat
 
-Bring your PDF documents and chat with them. Very simple Python program LangChain app that let's you chat with your PDF documents.
+Bring your PDF documents and chat with them. Very simple Python LangChain application that let's you chat with your PDF documents.
 
 ![Static Badge](https://img.shields.io/badge/Python-3.11.4-blue)
 ![Static Badge](https://img.shields.io/badge/Langchain-0.0.184-blue)
