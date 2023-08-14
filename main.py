@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from PyPDF2 import PdfReader
+from langchain.text_splitter import CharacterTextSplitter ## to split the text into smaller chunks
 
 ## get the list of PDF(s) in the root directory
 pdf_files = [f for f in os.listdir('.') if f.endswith('.pdf')]
@@ -13,6 +14,12 @@ def get_pdf_text(pdf_files):
         for page in pdf_reader.pages:
             text += page.extract_text()
     return text
+
+## function to split the text into smaller chunks
+def get_text_chunks(pdf_text):
+    text_splitter = CharacterTextSplitter(separator="\n", chunk_size=1000, chunk_overlap=200, length_function=len)
+    text_chunks = text_splitter.split_text(pdf_text)
+    return text_chunks
 
 def main():
     st.set_page_config(page_title="Chat With Your PDF(s)", page_icon=":sunglasses:")
@@ -31,6 +38,8 @@ def main():
             #st.write(pdf_text)
 
             ## split the text into smaller chunks
+            text_chunks = get_text_chunks(pdf_text)
+            #st.write(text_chunks)
 
             ## create vector store for the chunks
 
