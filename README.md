@@ -3,7 +3,7 @@
 Bring your PDF documents and chat with them. Very simple Python LangChain application that let's you chat with your PDF documents.
 
 ![Static Badge](https://img.shields.io/badge/Python-3.11.4-blue)
-![Static Badge](https://img.shields.io/badge/Streamlit-1.25.0-blue)
+![Static Badge](https://img.shields.io/badge/Streamlit-1.23.1-blue)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 # Contributions
