@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter ## to split the text into smaller chunks
-from langchain.embeddings import HuggingFaceInstructEmbeddings ## to create embeddings from the chunks
+from langchain.embeddings import HuggingFaceEmbeddings ## to create embeddings from the chunks
 from langchain.vectorstores import FAISS ## to create vector store for the embeddings
 
 ## get the list of PDF(s) in the root directory
@@ -25,7 +25,7 @@ def get_text_chunks(pdf_text):
 
 ## function to create vector store for the chunks
 def get_vector_store(text_chunks):
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
     vector_store = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vector_store
 
