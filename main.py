@@ -37,20 +37,23 @@ def main():
     
     with st.sidebar:
         st.subheader("Your Documents")
-        st.write(f'Found {len(pdf_files)} PDF file(s).')
-        st.write('- ' + '\n- '.join(pdf_files))
-        with st.spinner("Processing the PDFs"):
+        if len(pdf_files) == 0:
+            st.write('Found 0 PDF file. Please add one to the root directory')
+        else:
+            st.write(f'Found {len(pdf_files)} PDF file(s).')
+            st.write('- ' + '\n- '.join(pdf_files))
+            with st.spinner("Processing the PDF(s)"):
 
-            ## get the text from PDF(s)
-            pdf_text = get_pdf_text(pdf_files)
-            #st.write(pdf_text)
+                ## get the text from PDF(s)
+                pdf_text = get_pdf_text(pdf_files)
+                #st.write(pdf_text)
 
-            ## split the text into smaller chunks
-            text_chunks = get_text_chunks(pdf_text)
-            #st.write(text_chunks)
+                ## split the text into smaller chunks
+                text_chunks = get_text_chunks(pdf_text)
+                #st.write(text_chunks)
 
-            ## create vector store for the chunks
-            vector_store = get_vector_store(text_chunks)
+                ## create vector store for the chunks
+                vector_store = get_vector_store(text_chunks)
 
 if __name__ == '__main__':
     main()
