@@ -1,9 +1,10 @@
-langchain==0.0.27
-PyPDF2==3.0.1
-python-dotenv==0.21.1
 streamlit==1.23.1
-faiss-cpu==1.7.4
-altair==5.0.1
-InstructorEmbedding==1.0.1
-sentence-transformers==2.2.2
+PyPDF2==3.0.1
 pydantic==1.10.12
+langchain==0.0.27
+sentence-transformers==2.2.2
+## InstructorEmbedding==1.0.1 Not required for Render
+faiss-cpu==1.7.4
+openai=0.27.6
+python-dotenv==0.21.1
+altair==5.0.1
