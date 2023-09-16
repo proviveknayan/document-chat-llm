@@ -5,7 +5,7 @@ from langchain.text_splitter import CharacterTextSplitter ## to split the text i
 from langchain.embeddings import HuggingFaceEmbeddings ## to create embeddings from the chunks
 from langchain.vectorstores import FAISS ## to create vector store for the embeddings
 from dotenv import load_dotenv
-from langchain.chat_models import ChatOpenAI
+from langchain.chat_models.openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory ## to remember the running context of a chat
 from langchain.chains import ConversationalRetrievalChain ## to get chat history and reply to queries
 
@@ -62,7 +62,7 @@ def main():
     with st.sidebar:
         st.subheader("Your Documents")
         if len(pdf_files) == 0:
-            st.write('Oops!. Did not find any PDF document. Please add one to the root directory.')
+            st.write('Oops! Did not find any PDF document. Please add one to the root directory.')
         else:
             st.write(f'Found {len(pdf_files)} PDF file(s).')
             st.write('- ' + '\n- '.join(pdf_files))
