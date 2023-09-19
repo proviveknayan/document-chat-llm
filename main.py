@@ -36,7 +36,7 @@ def get_vector_store(text_chunks):
 ## function to create conversation chain
 def get_chat_chain(vector_store):
     llm = ChatOpenAI()
-    memory = ConversationBufferMemory(chat_memory='chat_history', return_messages=True)
+    memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     chat_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=vector_store.as_retriever(), memory=memory)
     return chat_chain
 
